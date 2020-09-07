@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+        background-color: #999;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+        }
+        div {
+        width: 500px;
+        height: 500px;
+        margin: auto;
+        }
+        input[type=text] {
+        border-radius: 5px;
+        padding: 10px;
+        }
+        input[type=submit] {
+        padding: 5px 15px;
+        background: #ccc;
+        border: 0 none;
+        margin: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Einkaufsliste - Rewe</h1>
+        <input id="userinput" type="text" placeholder="Hier Artikel eingeben">
+        <input id="enter" type="submit" value="Speichern"></input>
+        <p>Liste:</p>
+        <ul>
+          <li>McCain Pommes Frites 1.2.3 Golden Longs 600g</li>
+          <li>Iglo Fischstäbchen 450g, 15 Stück</li>
+          <li>Waldiben Fass-Salzgurken eingelegt 450g</li>
+          <li>Gustavo Gusto Pizza Margherita 410g</li>
+          <li>Followfish Bio-Lachs-Filets 200g</li>
+        </ul>
+      </div>
+      <script>
+          let userinput = document.getElementById("userinput")
+          console.log(document.querySelector("userinput"))
+          let list = document.querySelector("ul")
+          console.log(list)
+          
+
+          document.querySelector("#enter").addEventListener('click', clickButton)
+          function clickButton(){
+            console.log("work")
+            let userinputListe = document.createElement("li")
+            let userinputText = document.createTextNode(`${userinput.value}`)
+            console.log(userinputText)
+            userinputListe.appendChild(userinputText)
+            list.appendChild(userinputListe)
+          }
+
+          userinput.addEventListener("keydown", InhalteLesenSpeichern)
+          function InhalteLesenSpeichern(){
+              console.log("work")
+              if(event.keyCode == 13){
+                let userinputListe = document.createElement("li")
+                let userinputText = document.createTextNode(`${userinput.value}`)
+                console.log(userinputText)
+                userinputListe.appendChild(userinputText)
+                list.appendChild(userinputListe)
+              }
+          }
+
+      </script>
+</body>
+</html>
